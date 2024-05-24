@@ -1,11 +1,11 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header bordered>
       <q-toolbar>
         <img
           class="absolute-center"
           style="padding: 20px"
-          width="200px"
+          width="300px"
           src="../assets/aqualert-logo.png"
           alt="Aqualert"
         />
@@ -17,9 +17,9 @@
       <q-list>
         <q-item-label header> Menu </q-item-label>
 
-        <q-item clickable exact to="/">
+        <q-item clickable exact to="/inicio">
           <q-item-section avatar>
-            <q-icon name="home" />
+            <q-icon name="homes"/>
           </q-item-section>
 
           <q-item-section>
@@ -55,14 +55,21 @@
 
     <q-footer v-show="$q.screen.lt.sm">
       <q-tabs class="text-white">
-        <q-route-tab name="Inicio" icon="home" to="/" exact />
+        <q-route-tab
+          name="Inicio"
+          icon="home"
+          to="/inicio"
+          exact />
         <q-route-tab
           name="Calendário"
           icon="calendar_month"
           to="/calendario"
-          exact
-        />
-        <q-route-tab name="Perfil" icon="person" to="/perfil" exact />
+          exact/>
+        <q-route-tab
+          name="Perfil"
+          icon="person"
+          to="/perfil"
+          exact />
       </q-tabs>
     </q-footer>
   </q-layout>

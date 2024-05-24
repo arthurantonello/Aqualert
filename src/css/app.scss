@@ -1,36 +1,82 @@
 // app global css in SCSS form
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap');
 
+//Geral
 * {
   margin: 0;
   padding: 0;
   font-family: "Plus Jakarta Sans", sans-serif;
 }
-//Inicio
 
-p {
+.fundo-degrade {
+  background-image: linear-gradient($primary 1%, white, white);
+}
+
+.fundo-degrade-maior {
+  background-image: linear-gradient($primary-light 60%, white, white);
+}
+
+.q-header{
+  display: flex;
+  height: 100px;
+  background-color: $secondary;
+}
+
+//Abertura
+.abertura-conteudo {
+  display: flex;
+  flex-direction: column;
   margin-top: 250px;
+  align-items: center;
+}
+.abertura-conteudo p {
   margin-bottom: -10px;
 }
 
-.logo {
+.abertura-logo {
   width: 80%;
-  margin-bottom: -200px;
 }
-section {
+
+.abertura-acesso {
+  z-index: 8;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-top: 130px;
+  margin-bottom: -180px;
 }
-section.ondas {
+
+.abertura-acesso .q-btn {
+  color: black;
+  font-size: 15px;
+  background-color: $secondary;
+  box-shadow: 0px 4px 4px rgba(90, 90, 90, 0.25);
+}
+
+.abertura-acesso #btn-voltar{
+  box-shadow: none;
+}
+
+.abertura-acesso a {
+  background-color: transparent;
+  border: 0;
+  color: $primary;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  position: relative;
+}
+
+section.abertura-ondas {
   display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 120px;
   overflow: hidden;
+  margin-top: 200px;
 }
-section.box {
+section.abertura-box {
   margin-top: -10px;
   width: 100%;
   height: 500px;
@@ -50,28 +96,28 @@ section .wave {
 
 section .wave.wave1 {
   animation: animate 60s linear infinite;
-  z-index: 1000;
+  z-index: 5;
   opacity: 1;
   animation-delay: 0s;
   bottom: 0;
 }
 section .wave.wave2 {
   animation: animate2 30s linear infinite;
-  z-index: 999;
+  z-index: 4;
   opacity: 0.5;
   animation-delay: -5;
   bottom: 10px;
 }
 section .wave.wave3 {
   animation: animate 30s linear infinite;
-  z-index: 998;
+  z-index: 3;
   opacity: 0.2;
   animation-delay: -2;
   bottom: 15px;
 }
 section .wave.wave4 {
   animation: animate2 100s linear infinite;
-  z-index: 997;
+  z-index: 2;
   opacity: 0.7;
   animation-delay: -5;
   bottom: 20px;
@@ -81,7 +127,7 @@ section .wave.wave4 {
     background-position-x: 0;
   }
   100% {
-    background-position-x: 2000px;
+    background-position-x: 1000px;
   }
 }
 @keyframes animate2 {
@@ -89,6 +135,139 @@ section .wave.wave4 {
     background-position-x: 0;
   }
   100% {
-    background-position-x: -2000px;
+    background-position-x: -1000px;
   }
+}
+
+//Login
+.login-conteudo {
+  display: flex;
+  flex-direction: column;
+  margin-top: 250px;
+  align-items: center;
+}
+
+.login-logo {
+  width: 80%;
+}
+
+.login-formulario{
+  width: 315px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  background-color: $secondary;
+  border-radius: 5px;
+  box-shadow: 4px 5px 4px rgba(90, 90, 90, 0.25);
+}
+
+.login-formulario-peso{
+  margin-bottom: 20px;
+}
+
+.login-formulario p{
+  text-align: center;
+}
+
+.login-formulario-senha{
+  margin-bottom: 20px;
+}
+
+section.login-ondas {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  margin-top: -50px;
+}
+
+section.login-box {
+  margin-top: -10px;
+  width: 100%;
+  height: 165px;
+  overflow: hidden;
+  background-color: $primary;
+}
+
+//Cadastro
+.cadastro-conteudo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cadastro-logo{
+  width: 300px;
+  margin: -110px 0px 20px 0px;
+}
+
+.cadastro-barra{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cadastro-barra .barra-linha{
+  width: 85px;
+  height: 5px;
+  background-color: $primary;
+  margin: 0px 4px 0px 4px;
+  box-shadow: 0px 2px 4px rgba(90, 90, 90, 0.25);
+}
+
+.cadastro-barra .barra-circulo-check{
+  width: 23px;
+  height: 23px;
+  border-radius: 100%;
+  text-align: center;
+  align-content: center;
+  color: white;
+  background-color: $primary;
+  box-shadow: 0px 2px 4px rgba(90, 90, 90, 0.25);
+  font-family: "Noto Sans Symbols 2", sans-serif;
+}
+
+.barra-circulo-check .q-icon{
+  text-shadow: 10px;
+}
+
+.cadastro-barra .barra-circulo-uncheck{
+  width: 23px;
+  height: 23px;
+  border-radius: 100%;
+  background-color: $secondary;
+  box-shadow: 0px 2px 4px rgba(90, 90, 90, 0.25);
+}
+
+.cadastro-formulario{
+  width: 315px;
+  margin-top: 70px;
+  background-color: $secondary;
+  border-radius: 5px;
+  box-shadow: 4px 5px 4px rgba(90, 90, 90, 0.25);
+}
+
+.cadastro-formulario-peso{
+  margin-bottom: 20px;
+}
+
+.cadastro-formulario p{
+  text-align: center;
+}
+
+.cadastro-formulario-senha{
+  margin-bottom: 20px;
+}
+
+.cadastro-horario{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+.cadastro-horario-imput{
+  width: 40%;
 }
