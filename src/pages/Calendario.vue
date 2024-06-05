@@ -5,7 +5,8 @@
     v-model="days"
     title="John Doe"
     subtitle="Birthday"
-    range multiple />
+    range multiple
+    readonly/>
   </div>
     <p>São 10  dias seguidos mantendo sua meta de hidratação!</p>
   </q-page>
@@ -15,7 +16,7 @@
 import { ref } from 'vue'
 
 export default {
-  setup () {
+  data () {
     return {
       days: ref([
         { from: '2024/07/01', to: '2024/07/10' },

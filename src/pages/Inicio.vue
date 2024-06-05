@@ -1,21 +1,29 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="column items-center justify-around">
     <div class="q-pa-md flex flex-center">
     <q-knob
       show-value
       class="text-light-blue q-ma-md"
       v-model="value"
-      size="350px"
+      size="300px"
       :thickness="0.05"
-      color="light-blue" />
+      color="light-blue"
+      readonly/>
     </div>
 
-    <q-btn push color="blue"
-    text-color="white">-</q-btn>
-    <q-input outlined v-model="text" label="mls consumidos" />
-    <q-btn push color="blue"  text-color="white">+</q-btn>
+    <q-input bottom-slots v-model="text" label="Consumo em mls" counter maxlength="10" :dense="dense">
+        <template v-slot:before>
+          <q-icon v-if="text !== ''" name="open" @click="text = ''" class="cursor-pointer" />
+          <q-btn round dense flat icon="remove" />
+        </template>
 
-    <p>Você  está quase lá! Falta pouco para chegar em sua meta diária!</p>
+        <template v-slot:after>
+          <q-icon v-if="text !== ''" name="close" @click="text = ''" class="cursor-pointer" />
+          <q-btn round dense flat icon="add" />
+        </template>
+        </q-input>
+
+    <p>Falta pouco para chegar em sua meta diária!</p>
   </q-page>
 </template>
 
@@ -23,9 +31,12 @@
 import { ref } from 'vue'
 
 export default {
-  setup () {
+  data () {
     return {
-      value: ref(81)
+      value: ref(81),
+      text: ref(''),
+      ph: ref(''),
+      dense: ref(false)
     }
   }
 }
