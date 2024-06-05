@@ -2,8 +2,8 @@
   <q-page class="column items-center justify-center">
     <div class="q-pa-md q-gutter-sm">
       <q-avatar
-        size="200px"
-        font-size="150px"
+        size="150px"
+        font-size="100px"
         color="blue"
         text-color="white"
         icon="person"
@@ -15,11 +15,11 @@
     <p>Periodo de sono</p>
 
     <div class="q-pa-md">
-      <div class="q-gutter-sm row">
+      <div class="q-gutter-sm row items-center">
         <p>Das</p>
 
-        <q-input filled v-model="time" mask="time" :rules="['time']">
-          <template v-slot:append>
+        <q-input filled v-model="time" mask="time" :rules="['time']" >
+          <template v-slot:append >
             <q-icon name="access_time" class="cursor-pointer">
               <q-popup-proxy
                 cover
@@ -39,7 +39,7 @@
     </div>
 
     <div class="q-pa-md">
-      <div class="q-gutter-sm row">
+      <div class="q-gutter-sm row items-center">
         <p>Às</p>
         <q-input filled v-model="time" mask="time" :rules="['time']">
           <template v-slot:append>
@@ -61,13 +61,15 @@
       </div>
     </div>
 
-<!--
+
     <p>Peso</p>
-    <q-input outlined v-model="text" label="Outlined" />
+    <q-input filled v-model="text" label="" />
 
     <p>Seu consumo ideal é:</p>
     <q-btn color="primary" label="1,80" />
     <p>Litros de água por dia</p>
+
+    <div class=consumoideal >
 
     <q-img
       :src="url"
@@ -76,7 +78,6 @@
     />
     <p>4 garrafinhas de 500ml</p>
 
-    /*linha divisioria*/
 
     <q-img
       :src="url"
@@ -84,9 +85,7 @@
       style="height: 140px; max-width: 150px"
     />
     <p>6 copos de 300ml</p>
-
--->
-
+  </div>
   </q-page>
 </template>
 
@@ -100,6 +99,8 @@ export default {
     return {
       time: ref("10:56"),
       timeWithSeconds: ref("10:56:00"),
+      time2: ref("10:56"),
+      timeWithSeconds2: ref("10:56:00"),
     };
   },
 };
