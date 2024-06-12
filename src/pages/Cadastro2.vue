@@ -22,6 +22,7 @@
           >
 
           <p>Estamos quase lá, para finalizar, insira seu peso em KG</p>
+
             <q-input
               class="cadastro-formulario-peso"
               filled
@@ -36,7 +37,7 @@
                   <template v-slot:append>
                     <q-icon name="access_time" class="cursor-pointer">
                       <q-popup-proxy cover transition-show="scale" transition-hide="scale">
-                        <q-time format24h v-model="time">
+                        <q-time format24h v-model="time1">
                           <div class="row items-center justify-end">
                             <q-btn v-close-popup label="Fechar" color="primary" flat />
                           </div>
@@ -54,7 +55,7 @@
                   <template v-slot:append>
                     <q-icon name="access_time" class="cursor-pointer">
                       <q-popup-proxy cover transition-show="scale" transition-hide="scale">
-                        <q-time format24h v-model="time">
+                        <q-time format24h v-model="time2">
                           <div class="row items-center justify-end">
                             <q-btn v-close-popup label="Fechar" color="primary" flat />
                           </div>
@@ -76,6 +77,24 @@
   </section>
   </q-page>
 </template>
+
+<script>
+  import { ref } from "vue";
+  export default {
+    data() {
+      const weight = ref(null);
+
+      return {
+        weight,
+        time1: ref(''),
+        time2: ref(''),
+        onSubmit() {
+          //inserir submit
+        },
+      };
+    },
+  };
+</script>
 
 <script setup>
 defineOptions({

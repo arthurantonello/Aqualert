@@ -18,9 +18,9 @@
 
         <div
           class="cadastro-formulario q-pa-lg"
-          style="max-width: 315px max-heigth: 370px"
+          style="max-width: 315px"
         >
-          <q-form @click="onSubmit" class="q-gutter-auto">
+          <q-form class="q-gutter-auto">
             <q-input
               size="50px"
               filled
@@ -47,11 +47,17 @@
 
             <q-input
               class="cadastro-formulario-senha"
-              label="Digite sua senha"
               v-model="password"
-              filled
-              type="password"
-            />
+              filled :type="isPwd ? 'password' : 'text'"
+              label="Digite sua senha">
+              <template v-slot:append>
+                <q-icon
+                  :name="isPwd ? 'visibility_off' : 'visibility'"
+                  class="cursor-pointer"
+                  @click="isPwd = !isPwd"
+                />
+              </template>
+            </q-input>
 
             <q-input
               class="cadastro-formulario-senha"
@@ -59,7 +65,15 @@
               v-model="checkpassword"
               filled
               type="password"
-            />
+              >
+             <template v-slot:append>
+                <q-icon
+                  :name="isPwd ? 'visibility_off' : 'visibility'"
+                  class="cursor-pointer"
+                  @click="isPwd = !isPwd"
+                />
+              </template>
+            </q-input>
 
             <div>
               <q-btn
@@ -67,6 +81,7 @@
                 label="Continuar"
                 type="submit"
                 color="primary"
+                @click="onSubmit"
               />
               <q-btn
                 to="/"
@@ -82,12 +97,6 @@
     </section>
   </q-page>
 </template>
-
-<script setup>
-defineOptions({
-  name: "IndexPage",
-});
-</script>
 
 <script>
 import { useQuasar } from "quasar";
@@ -105,14 +114,21 @@ export default {
     return {
       name,
       surname,
-      password,
+      password: ref(''),
+      isPwd: ref(true),
       checkpassword,
       accept,
 
       onSubmit() {
-        console.log("ta dos guri");
+        //inserir submit
       },
     };
   },
 };
+</script>
+
+<script setup>
+defineOptions({
+  name: "IndexPage",
+});
 </script>
