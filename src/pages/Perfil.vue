@@ -9,10 +9,13 @@
         icon="person"
       />
     </div>
+      <div class="q-pa-md">
+        <div class="q-gutter-sm row items-center">
+        <p>Nome Usuário</p>
+      </div>
+    </div>
 
-    <p>Nome Usuário</p>
-
-    <p>Periodo de sono</p>
+          <p>Periodo de sono</p>
 
     <div class="q-pa-md">
       <div class="q-gutter-sm row items-center">
@@ -72,35 +75,48 @@
         lazy-rules
       />
 
-    <p>Seu consumo ideal é:</p>
+    <div class="q-pa-md column items-center justify-around">
+      <p>Seu consumo ideal é:</p>
 
-    <div class="q-pa-md row items-start q-gutter-md">
-    <q-card class="my-card">
-      <q-card-section class="bg-primary text-white">
-        {{ consumo }}
-      </q-card-section>
-    </q-card>
+      <q-card class="my-card">
+        <q-card-section class="bg-primary text-white ">
+          {{ consumo }}
+        </q-card-section>
+      </q-card>
+
+      <p class="q-pt-md">Litros de água por dia</p>
+
     </div>
 
-    <p>Litros de água por dia</p>
   </q-page>
 </template>
 
 
 <script>
 import { ref } from "vue";
-//referenciar aqui o primeiro horario selecionado pelo usuario em cadastro2
+
+//referenciar aqui o primeiro horario (time1 e time2) selecionado pelo usuario em cadastro2
 //acionar consumo como rule no q-input ou fuction no script pra calcular baseado no value de peso
-//:rules="[ val => val && val.length > 0 || 'Please type something']"
 
 
 export default {
+
+
+
   data() {
-    const peso = ref(null)
+
+    const peso = ref('')
+    const consumo = ref('')
+
+  methods: {
+    function consumir (peso){
+      return {consumo : peso.value}
+    }
+    }
 
     return {
       peso,
-      consumo: 1,
+      consumo,
       dastime: ref(""),
       astime: ref("")
 

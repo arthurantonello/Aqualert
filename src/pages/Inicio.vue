@@ -29,11 +29,16 @@
 
 <script>
 import { ref } from 'vue'
+
 //puxar value baseado no input e deixar botoes individuais e com funcao
+
+//const pra resultado da funcao e obter a meta
+// funcao pra consumo receber valores e integrar botoes
+
 export default {
   data () {
     return {
-      value: ref(81),
+      value: ref(100),
       text: ref(''),
       ph: ref(''),
       dense: ref(false)
@@ -47,3 +52,63 @@ defineOptions({
   name: 'IndexPage'
 });
 </script>
+
+<!--
+Template de submit com form
+
+<template>
+  <form @submit.prevent="simulateSubmit" class="q-pa-md">
+    <q-input
+      filled
+      color="teal"
+      hint="Type then hit Enter key above"
+      v-model="test"
+    />
+
+    <div class="row justify-end">
+      <q-btn
+        type="submit"
+        :loading="submitting"
+        label="Save"
+        class="q-mt-md"
+        color="teal"
+      >
+        <template v-slot:loading>
+          <q-spinner-facebook />
+        </template>
+      </q-btn>
+    </div>
+  </form>
+</template>
+
+<script>
+import { ref } from 'vue'
+
+export default {
+  setup () {
+    const test = ref('')
+    const submitting = ref(false)
+
+    function simulateSubmit () {
+      submitting.value = true
+
+      // Simulating a delay here.
+      // When we are done, we reset "submitting"
+      // Boolean to false to restore the
+      // initial state.
+      setTimeout(() => {
+        // delay simulated, we are done,
+        // now restoring submit to its initial state
+        submitting.value = false
+      }, 3000)
+    }
+
+    return {
+      test,
+      submitting,
+      simulateSubmit
+    }
+  }
+}
+</script>
+-->

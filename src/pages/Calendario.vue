@@ -1,3 +1,4 @@
+
 <template>
   <q-page class="flex flex-center">
     <div class="q-pa-md">
@@ -14,6 +15,8 @@
 
 <script>
 import { ref } from 'vue'
+
+//preencher dada conforme meta batida
 
 export default {
   data () {
@@ -32,4 +35,71 @@ defineOptions({
   name: 'IndexPage'
 });
 
+
 </script>
+
+
+<!--
+
+  Usar esse script caso quiser deixar o usuario escolher a data no submit ou apagar o readonly do script acima para escolher manualmente
+
+
+<template>
+  <div class="q-pa-md">
+    <q-form @submit="onSubmit" class="q-gutter-md">
+      <q-date name="wedding" v-model="date" />
+
+      <div>
+        <q-btn label="Submit" type="submit" color="primary"/>
+      </div>
+    </q-form>
+
+    <q-card
+      v-if="submitResult.length > 0"
+      flat bordered
+      class="q-mt-md"
+      :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-2'"
+    >
+      <q-card-section>Submitted form contains the following formData (key = value):</q-card-section>
+      <q-separator />
+      <q-card-section class="row q-gutter-sm items-center">
+        <div
+          v-for="(item, index) in submitResult"
+          :key="index"
+          class="q-px-sm q-py-xs bg-grey-8 text-white rounded-borders text-center text-no-wrap"
+        >{{ item.name }} = {{ item.value }}</div>
+      </q-card-section>
+    </q-card>
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue'
+
+export default {
+  setup () {
+    const submitResult = ref([])
+
+    return {
+      date: ref('2020/03/20'),
+      submitResult,
+
+      onSubmit (evt) {
+        const formData = new FormData(evt.target)
+        const data = []
+
+        for (const [ name, value ] of formData.entries()) {
+          data.push({
+            name,
+            value
+          })
+        }
+
+        submitResult.value = data
+      }
+    }
+  }
+}
+</script>
+
+-->
