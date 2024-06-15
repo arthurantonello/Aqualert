@@ -33,7 +33,7 @@
             <p>Agora, qual o seu intervalo de sono?</p>
             <div class="cadastro-horario">
               <div class="cadastro-horario-imput q-sm row">
-                <q-input filled v-model="time" mask="time">
+                <q-input filled v-model="time1" mask="time">
                   <template v-slot:append>
                     <q-icon name="access_time" class="cursor-pointer">
                       <q-popup-proxy cover transition-show="scale" transition-hide="scale">
@@ -51,7 +51,7 @@
               <p>até</p>
 
               <div class="cadastro-horario-imput q-sm row">
-                <q-input filled v-model="time" mask="time">
+                <q-input filled v-model="time2" mask="time">
                   <template v-slot:append>
                     <q-icon name="access_time" class="cursor-pointer">
                       <q-popup-proxy cover transition-show="scale" transition-hide="scale">

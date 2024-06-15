@@ -18,7 +18,7 @@
       <div class="q-gutter-sm row items-center">
         <p>Das</p>
 
-        <q-input filled v-model="time" mask="time" :rules="['time']" >
+        <q-input filled v-model="dastime" mask="time" >
           <template v-slot:append >
             <q-icon name="access_time" class="cursor-pointer">
               <q-popup-proxy
@@ -26,9 +26,9 @@
                 transition-show="scale"
                 transition-hide="scale"
               >
-                <q-time v-model="time">
+                <q-time v-model="dastime">
                   <div class="row items-center justify-end">
-                    <q-btn v-close-popup label="Close" color="primary" flat />
+                    <q-btn v-close-popup label="OK" color="primary" flat />
                   </div>
                 </q-time>
               </q-popup-proxy>
@@ -41,7 +41,7 @@
     <div class="q-pa-md">
       <div class="q-gutter-sm row items-center">
         <p>Às</p>
-        <q-input filled v-model="time" mask="time" :rules="['time']">
+        <q-input filled v-model="astime" mask="time">
           <template v-slot:append>
             <q-icon name="access_time" class="cursor-pointer">
               <q-popup-proxy
@@ -49,9 +49,9 @@
                 transition-show="scale"
                 transition-hide="scale"
               >
-                <q-time v-model="time">
+                <q-time v-model="astime">
                   <div class="row items-center justify-end">
-                    <q-btn v-close-popup label="Close" color="primary" flat />
+                    <q-btn v-close-popup label="OK" color="primary" flat />
                   </div>
                 </q-time>
               </q-popup-proxy>
@@ -63,44 +63,47 @@
 
 
     <p>Peso</p>
-    <q-input filled v-model="text" label="" />
+
+     <q-input
+        filled
+        type="number"
+        v-model="peso"
+        label="Insira seu peso"
+        lazy-rules
+      />
 
     <p>Seu consumo ideal é:</p>
-    <q-btn color="primary" label="1,80" />
+
+    <div class="q-pa-md row items-start q-gutter-md">
+    <q-card class="my-card">
+      <q-card-section class="bg-primary text-white">
+        {{ consumo }}
+      </q-card-section>
+    </q-card>
+    </div>
+
     <p>Litros de água por dia</p>
-
-    <div class=consumoideal >
-
-    <q-img
-      :src="url"
-      spinner-color="white"
-      style="height: 140px; max-width: 150px"
-    />
-    <p>4 garrafinhas de 500ml</p>
-
-
-    <q-img
-      :src="url"
-      spinner-color="white"
-      style="height: 140px; max-width: 150px"
-    />
-    <p>6 copos de 300ml</p>
-  </div>
   </q-page>
 </template>
 
 
-
 <script>
 import { ref } from "vue";
+//referenciar aqui o primeiro horario selecionado pelo usuario em cadastro2
+//acionar consumo como rule no q-input ou fuction no script pra calcular baseado no value de peso
+//:rules="[ val => val && val.length > 0 || 'Please type something']"
+
 
 export default {
   data() {
+    const peso = ref(null)
+
     return {
-      time: ref("10:56"),
-      timeWithSeconds: ref("10:56:00"),
-      time2: ref("10:56"),
-      timeWithSeconds2: ref("10:56:00"),
+      peso,
+      consumo: 1,
+      dastime: ref(""),
+      astime: ref("")
+
     };
   },
 };

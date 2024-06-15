@@ -29,7 +29,7 @@
 
 <script>
 import { ref } from 'vue'
-
+//puxar value baseado no input e deixar botoes individuais e com funcao
 export default {
   data () {
     return {
