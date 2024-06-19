@@ -100,30 +100,22 @@ import { ref } from "vue";
 
 
 export default {
-
-
-
   data() {
-
-    const peso = ref('')
-    const consumo = ref('')
-
-  methods: {
-    function consumir (peso){
-      return {consumo : peso.value}
-    }
-    }
-
     return {
-      peso,
-      consumo,
+      peso: 0,
       dastime: ref(""),
       astime: ref("")
-
-    };
+    }
   },
+
+  computed: {
+    consumo (){
+      return this.peso * 25;
+    }
+  }
 };
 </script>
+
 
 <script setup>
 defineOptions({
