@@ -16,15 +16,9 @@
             color="white"
             clickable
             exact
-            to="/cadastro"
+            to="/login"
             label="Vamos começar"
           />
-          <p>
-            Já tem uma conta?
-            <router-link style="text-decoration: none" to="/login"
-              >Entrar</router-link
-            >
-          </p>
         </div>
       </section>
       <section class="abertura-ondas">

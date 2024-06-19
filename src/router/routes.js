@@ -5,19 +5,11 @@ const routes = [
     children: [
       {
         path: "",
-        component: () => import("pages/Abertura.vue"),
+        component: () => import("pages/AberturaApp.vue"),
       },
       {
         path: "login",
-        component: () => import("pages/Login.vue"),
-      },
-      {
-        path: "/cadastro",
-        component: () => import("pages/Cadastro1.vue"),
-      },
-      {
-        path: "/cadastro2",
-        component: () => import("pages/Cadastro2.vue"),
+        component: () => import("pages/LoginUsuario.vue"),
       },
     ],
 
@@ -28,21 +20,19 @@ const routes = [
     children: [
       {
         path: "/inicio",
-        component: () => import("pages/Inicio.vue"),
+        component: () => import("pages/InicioUsuario.vue"),
       },
       {
         path: "/calendario",
-        component: () => import("pages/Calendario.vue"),
+        component: () => import("pages/CalendarioUsuario.vue"),
       },
       {
         path: "/perfil",
-        component: () => import("pages/Perfil.vue"),
+        component: () => import("pages/PerfilUsuario.vue"),
       },
     ],
   },
 
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: "/:catchAll(.*)*",
     component: () => import("pages/ErrorNotFound.vue"),

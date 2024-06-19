@@ -39,6 +39,7 @@
 .abertura-acesso {
   z-index: 8;
   display: flex;
+  width: 12em;
   flex-direction: column;
   margin-top: 130px;
   margin-bottom: -180px;
@@ -166,7 +167,7 @@ section .wave.wave4 {
   text-align: center;
 }
 
-.login-formulario-senha{
+.login-formulario-idade{
   margin-bottom: 20px;
 }
 
@@ -186,87 +187,6 @@ section.login-box {
   height: 165px;
   overflow: hidden;
   background-color: $primary;
-}
-
-//Cadastro
-.cadastro-conteudo{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.cadastro-logo{
-  width: 300px;
-}
-
-.cadastro-barra{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.cadastro-barra .barra-linha{
-  width: 85px;
-  height: 5px;
-  background-color: $primary;
-  margin: 0px 4px 0px 4px;
-  box-shadow: 0px 2px 4px rgba(90, 90, 90, 0.25);
-}
-
-.cadastro-barra .barra-circulo-check{
-  width: 23px;
-  height: 23px;
-  border-radius: 100%;
-  text-align: center;
-  align-content: center;
-  color: white;
-  background-color: $primary;
-  box-shadow: 0px 2px 4px rgba(90, 90, 90, 0.25);
-  font-family: "Noto Sans Symbols 2", sans-serif;
-}
-
-.barra-circulo-check .q-icon{
-  text-shadow: 10px;
-}
-
-.cadastro-barra .barra-circulo-uncheck{
-  width: 23px;
-  height: 23px;
-  border-radius: 100%;
-  background-color: $secondary;
-  box-shadow: 0px 2px 4px rgba(90, 90, 90, 0.25);
-}
-
-.cadastro-formulario{
-  width: 315px;
-  margin-top: 70px;
-  background-color: $secondary;
-  border-radius: 5px;
-  box-shadow: 4px 5px 4px rgba(90, 90, 90, 0.25);
-}
-
-.cadastro-formulario-peso{
-  margin-bottom: 20px;
-}
-
-.cadastro-formulario p{
-  text-align: center;
-}
-
-.cadastro-formulario-senha{
-  margin-bottom: 20px;
-}
-
-.cadastro-horario{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 20px;
-}
-
-.cadastro-horario-imput{
-  width: 40%;
 }
 
 .consumoideal {
