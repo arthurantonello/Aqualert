@@ -30,7 +30,7 @@
 
       <q-card class="my-card">
         <q-card-section class="bg-primary text-white ">
-          {{ consumo }}
+          {{ consumption }}
         </q-card-section>
       </q-card>
 
@@ -44,14 +44,11 @@
 
 <script>
 import { setName, setWeight } from "src/store/user/actions";
-import { computed, defineComponent } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 
 export default {
-  setup() {
-    defineComponent({
-      name: "PerfilUsuario",
-    });
+  data() {
     const $store = useStore();
     const name = computed({
       get: () => $store.state.user.name,
@@ -63,8 +60,8 @@ export default {
       set: (val) => setWeight($store, val),
     });
 
-    const consumption = computed(() => {
-      return Math.round(weight.value * 25);
+    const consumption = computed( {
+      get: () => $store.getters["user/getConsumption"]
     });
 
     return {
@@ -76,8 +73,9 @@ export default {
 };
 </script>
 
+
 <script setup>
 defineOptions({
-  name: "IndexPage",
+  name: 'PerfilUsuario'
 });
 </script>

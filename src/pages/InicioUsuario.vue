@@ -9,7 +9,7 @@
       :thickness="0.05"
       color="light-blue"
       :min="0"
-      :max="1000" 
+      :max="consumption" 
     />
     </div>
 
@@ -37,10 +37,17 @@
 
 <script>
 import { ref } from 'vue'
+import { useStore } from "vuex";
+import { computed } from "vue";
 export default {
   data() {
+    const $store = useStore();
+    const consumption = computed( {
+      get: () => $store.getters["user/getConsumption"]
+    });
     return {
       value: 0, // Valor inicial
+      consumption,
     };
   },
   watch: {
@@ -58,11 +65,11 @@ export default {
   },
   methods: {
     increaseValue() {
-      this.value += 100;
+      this.value += Math.min(100, this.consumption);
     },
     decreaseValue() {
       if (this.value > 0) { 
-        this.value -= 100;
+        this.value -= Math.min(100, this.consumption);
       }
     },
   },

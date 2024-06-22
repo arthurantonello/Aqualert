@@ -6,3 +6,6 @@ export const getName = (state) => {
     return state.weight;
   };
   
+export const getConsumption = (state) => {
+  return (state.weight ?? 0) * 25
+}

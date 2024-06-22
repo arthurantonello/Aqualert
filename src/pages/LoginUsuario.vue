@@ -75,14 +75,11 @@
 
 <script>
 import { setName, setWeight } from "src/store/user/actions";
-import { computed, defineComponent } from "vue";
+import { computed } from "vue";
 import { useStore } from "vuex";
 
 export default {
-  setup() {
-    defineComponent({
-      name: "IndexPage",
-    });
+  data() {
     const $store = useStore();
     const name = computed({
       get: () => $store.state.user.name,
