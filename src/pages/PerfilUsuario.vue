@@ -11,7 +11,7 @@
     </div>
       <div class="q-pa-md">
         <div class="q-gutter-sm row items-center">
-        <p>Nome Usuário</p> <!-- Puxar nome do login -->
+        <p>{{ name }}</p> <!-- Puxar nome do login -->
       </div>
     </div>
 
@@ -20,7 +20,7 @@
      <q-input
         filled
         type="number"
-        v-model="peso"
+        v-model="weight"
         label="Insira seu peso"
         lazy-rules
       />
@@ -43,25 +43,38 @@
 
 
 <script>
-import { ref } from "vue";
+import { setName, setWeight } from "src/store/user/actions";
+import { computed, defineComponent } from "vue";
+import { useStore } from "vuex";
 
 export default {
-  data() {
-    return {
-      peso: 0, // peso puxar do login
-      dastime: ref(""),
-      astime: ref("")
-    }
-  },
+  setup() {
+    defineComponent({
+      name: "PerfilUsuario",
+    });
+    const $store = useStore();
+    const name = computed({
+      get: () => $store.state.user.name,
+      set: (val) => setName($store, val),
+    });
 
-  computed: {
-    consumo (){
-      return this.peso * 25;
-    }
-  }
+    const weight = computed({
+      get: () => $store.state.user.weight,
+      set: (val) => setWeight($store, val),
+    });
+
+    const consumption = computed(() => {
+      return Math.round(weight.value * 25);
+    });
+
+    return {
+      name,
+      weight,
+      consumption,
+    };
+  },
 };
 </script>
-
 
 <script setup>
 defineOptions({
