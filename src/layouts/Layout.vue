@@ -13,7 +13,7 @@
     </q-header>
 
     <!-- Inserir abaixo no q-drawer: v-model="leftDrawerOpen" -->
-    <q-drawer :width="250" bordered breakpoint="500">
+    <q-drawer :width="250" bordered breakpoint=500>
       <q-list>
         <q-item-label header> Menu </q-item-label>
 
@@ -24,16 +24,6 @@
 
           <q-item-section>
             <q-item-label>Início</q-item-label>
-          </q-item-section>
-        </q-item>
-
-        <q-item clickable exact to="/calendario">
-          <q-item-section avatar>
-            <q-icon name="calendar_month" />
-          </q-item-section>
-
-          <q-item-section>
-            <q-item-label>Calendário</q-item-label>
           </q-item-section>
         </q-item>
 
@@ -60,11 +50,6 @@
           icon="home"
           to="/inicio"
           exact />
-        <q-route-tab
-          name="Calendário"
-          icon="calendar_month"
-          to="/calendario"
-          exact/>
         <q-route-tab
           name="Perfil"
           icon="person"
