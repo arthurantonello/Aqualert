@@ -11,6 +11,7 @@
         <div class="abertura-acesso">
           <q-btn
             push
+            padding="10px"
             align="around"
             text-color="black"
             color="white"
