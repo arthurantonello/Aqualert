@@ -23,10 +23,6 @@ const routes = [
         component: () => import("pages/InicioUsuario.vue"),
       },
       {
-        path: "/calendario",
-        component: () => import("pages/CalendarioUsuario.vue"),
-      },
-      {
         path: "/perfil",
         component: () => import("pages/PerfilUsuario.vue"),
       },
