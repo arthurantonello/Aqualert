@@ -9,7 +9,7 @@
       :thickness="0.05"
       color="light-blue"
       :min="0"
-      :max="consumption" 
+      :max="consumption"
     />
     </div>
 
@@ -31,7 +31,7 @@
       />
     </div>
 
-    <p>Falta pouco para chegar em sua meta diária!</p>
+    <div>{{ message }}</div>
   </q-page>
 </template>
 
@@ -68,10 +68,19 @@ export default {
       this.value += Math.min(100, this.consumption);
     },
     decreaseValue() {
-      if (this.value > 0) { 
+      if (this.value > 0) {
         this.value -= Math.min(100, this.consumption);
       }
     },
+    message(){
+      let text
+      if (!this.value == this.consumption) {
+        text = "Falta pouco para chegar em sua meta diária!"
+      }else{
+        text = "Você bateu sua meta diária, parabéns!"
+      }
+      return text
+    }
   },
 };
 </script>
