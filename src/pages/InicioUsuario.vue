@@ -1,6 +1,7 @@
 <template>
   <q-page class="column items-center justify-around">
     <div class="q-pa-md flex flex-center">
+    <!-- Componente q-knob para exibir um knob com o valor do consumo -->
     <q-knob
       show-value
       class="text-light-blue q-ma-md"
@@ -14,41 +15,50 @@
     </div>
 
     <div class="row items-center q-pa-md">
+      <!-- Botão para diminuir o valor -->
       <q-btn
         round
-        dense
-        flat
+        color="primary"
         icon="remove"
         @click="decreaseValue"
       />
-      <span class="q-mx-md">{{ value }} ml</span>
+
+      <!-- Exibição do valor -->
+      <span 
+        class="q-mx-md">
+        {{ value }} ml
+      </span>
+
+      <!-- Botão para aumentar o valor -->
       <q-btn
         round
-        dense
-        flat
+        color="primary"
         icon="add"
         @click="increaseValue"
       />
     </div>
-
-    <div>{{ message }}</div>
+    <div>Vamos lá, você consegue!</div>
   </q-page>
 </template>
 
 <script>
 import { ref } from 'vue'
 import { useStore } from "vuex";
-import { computed } from "vue";
+import { computed, watch } from "vue";
+
 export default {
   data() {
     const $store = useStore();
+
+    // Consumo obtido do vuex como valor computado 
     const consumption = computed( {
       get: () => $store.getters["user/getConsumption"]
     });
     return {
-      value: 0, // Valor inicial
+      value: 0, // Valor inicial do knob
       consumption,
     };
+    
   },
   watch: {
     value(newValue) {
@@ -64,30 +74,33 @@ export default {
     }
   },
   methods: {
+    // Método para aumentar o valor do 'value'
     increaseValue() {
       this.value += Math.min(100, this.consumption);
     },
+    // Método para diminuir o valor do 'value'
     decreaseValue() {
       if (this.value > 0) {
         this.value -= Math.min(100, this.consumption);
       }
     },
-    message(){
-      let text
-      if (!this.value == this.consumption) {
-        text = "Falta pouco para chegar em sua meta diária!"
-      }else{
-        text = "Você bateu sua meta diária, parabéns!"
-      }
-      return text
-    }
+    // message(){
+    //   let text
+    //   if (!this.value == this.consumption) {
+    //     text = "Falta pouco para chegar em sua meta diária!"
+    //   }else{
+    //     text = "Você bateu sua meta diária, parabéns!"
+    //   }
+    //   return text
+    // }
   },
+  
 };
 </script>
 
 
 <script setup>
 defineOptions({
-  name: 'IndexPage'
+  name: 'InicioUsuario'
 });
 </script>
