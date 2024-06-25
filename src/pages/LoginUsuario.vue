@@ -12,11 +12,13 @@
           class="login-formulario q-pa-lg" 
           style="max-width: 315px; max-height: 370px"
         >
+          <!-- Formulário de login -->
           <q-form
             @submit="onSubmit"
             @reset="onReset"
             class="q-gutter-auto"
           >
+            <!-- Campo de entrada para o nome -->
             <q-input
               size="50px"
               filled
@@ -31,6 +33,7 @@
               ]"
             />
 
+            <!-- Campo de entrada para o peso -->
             <q-input
               class="login-formulario-idade"
               label="Peso"
@@ -82,13 +85,13 @@ export default {
   data() {
     const $store = useStore();
     const name = computed({
-      get: () => $store.state.user.name,
-      set: (val) => setName($store, val),
+      get: () => $store.state.user.name, // Obtém o nome do usuário
+      set: (val) => setName($store, val), // Define o nome do usuário usando a ação 'setName'
     });
 
     const weight = computed({
-      get: () => $store.state.user.weight,
-      set: (val) => setWeight($store, val),
+      get: () => $store.state.user.weight, // Obtém o peso do usuário
+      set: (val) => setWeight($store, val), // Define o peso do usuário usando a ação 'setWeight
     });
 
     return {
@@ -101,6 +104,6 @@ export default {
 
 <script setup>
 defineOptions({
-  name: "IndexPage",
+  name: "LoginUsuario",
 });
 </script>

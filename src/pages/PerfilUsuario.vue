@@ -9,32 +9,35 @@
         icon="person"
       />
     </div>
-      <div class="q-pa-md">
-        <div class="q-gutter-sm row items-center">
-        <p>{{ name }}</p> <!-- Puxar nome do login -->
-      </div>
-    </div>
-
-    <p>Peso</p>
-
-     <q-input
-        filled
+    <!-- Campo de entrada caso o usuário queira mudar o nome -->
+       <q-input
+        type="{{ name }}"
+        v-model="name"
+        :label="name ? '' : 'Nome usuário'"
+        lazy-rules
+        input-style="text-align: center;"
+      />
+      <br>
+      <!-- Campo de entrada de peso -->
+      <q-input
         type="number"
         v-model="weight"
-        label="Insira seu peso"
+        label="Peso em KG"
         lazy-rules
+        input-style="text-align: center;"
       />
 
     <div class="q-pa-md column items-center justify-around">
-      <p>Seu consumo ideal é:</p>
 
+      <p>Seu consumo ideal é de</p>
+      <!-- Cartão que mostra o consumo ideal do usuário -->
       <q-card class="my-card">
         <q-card-section class="bg-primary text-white ">
-          {{ consumption }}
+          {{ consumption }} ML
         </q-card-section>
       </q-card>
 
-      <p class="q-pt-md">Litros de água por dia</p>
+      <p class="q-pt-md">de água por dia</p>
 
     </div>
 
@@ -51,17 +54,17 @@ export default {
   data() {
     const $store = useStore();
     const name = computed({
-      get: () => $store.state.user.name,
-      set: (val) => setName($store, val),
+      get: () => $store.state.user.name,  // Obtém o nome do usuário
+      set: (val) => setName($store, val), // Define o nome do usuário usando a ação 'setName'
     });
 
     const weight = computed({
-      get: () => $store.state.user.weight,
-      set: (val) => setWeight($store, val),
+      get: () => $store.state.user.weight,  // Obtém o peso do usuário
+      set: (val) => setWeight($store, val), // Define o peso do usuário usando a ação 'setWeight'
     });
 
     const consumption = computed( {
-      get: () => $store.getters["user/getConsumption"]
+      get: () => $store.getters["user/getConsumption"] // Obtém o consumo ideal de água
     });
 
     return {
