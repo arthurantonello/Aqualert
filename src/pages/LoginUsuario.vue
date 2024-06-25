@@ -3,19 +3,17 @@
     <section class="abertura-container">
       <section class="abertura-conteudo">
         <p>Bem vindo ao</p>
-        <img 
-          class="abertura-logo" 
-          src="../assets/aqualert-logo.png" 
-          alt="Aqualert" 
+        <img
+          class="abertura-logo"
+          src="../assets/aqualert-logo.png"
+          alt="Aqualert"
         />
-        <div 
-          class="login-formulario q-pa-lg" 
+        <div
+          class="login-formulario q-pa-lg"
           style="max-width: 315px; max-height: 370px"
         >
           <!-- Formulário de login -->
           <q-form
-            @submit="onSubmit"
-            @reset="onReset"
             class="q-gutter-auto"
           >
             <!-- Campo de entrada para o nome -->
@@ -38,26 +36,28 @@
               class="login-formulario-idade"
               label="Peso"
               v-model="weight"
+              required
               filled
               type="number"
               lazy-rules
               :rules="[
                 (val) =>
                   (val !== null && val !== '') || 'Por favor, digite seu peso',
-                (val) => val >= 20 || 'Por favor, digite um peso válido',
+                (val) =>
+                  val >= 20 || 'Por favor, digite um peso válido',
               ]"
             />
 
             <div>
-              <q-btn 
-                to="/inicio" 
-                label="Continuar" 
-                type="submit" 
-                color="primary" 
+              <q-btn
+                to="/inicio"
+                label="Continuar"
+                type="submit"
+                color="primary"
               />
-              <q-btn 
-                to="/" label="Voltar" 
-                olor="primary" 
+              <q-btn
+                to="/" label="Voltar"
+                olor="primary"
                 flat class="q-ml-sm" />
             </div>
           </q-form>
