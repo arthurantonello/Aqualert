@@ -30,13 +30,10 @@
         @click="increaseValue"
       />
     </div>
-
-    <div>{{ message }}</div>
   </q-page>
 </template>
 
 <script>
-import { ref } from 'vue'
 import { useStore } from "vuex";
 import { computed } from "vue";
 export default {
@@ -72,19 +69,9 @@ export default {
         this.value -= Math.min(100, this.consumption);
       }
     },
-    message(){
-      let text
-      if (!this.value == this.consumption) {
-        text = "Falta pouco para chegar em sua meta diária!"
-      }else{
-        text = "Você bateu sua meta diária, parabéns!"
-      }
-      return text
-    }
   },
 };
 </script>
-
 
 <script setup>
 defineOptions({

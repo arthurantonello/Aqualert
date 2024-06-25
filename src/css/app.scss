@@ -5,6 +5,7 @@
 //Geral
 * {
   font-family: "Plus Jakarta Sans", sans-serif;
+
 }
 
 .fundo-degrade {
@@ -72,14 +73,12 @@ section.abertura-ondas {
   position: relative;
   width: 100%;
   height: 120px;
-  overflow: hidden;
   margin-top: 200px;
 }
 section.abertura-box {
   margin-top: -10px;
   width: 100%;
-  height: 500px;
-  overflow: hidden;
+  height: 225px;
   background-color: $primary;
 }
 
@@ -184,7 +183,7 @@ section.login-ondas {
 section.login-box {
   margin-top: -10px;
   width: 100%;
-  height: 165px;
+  height: 145px;
   overflow: hidden;
   background-color: $primary;
 }
