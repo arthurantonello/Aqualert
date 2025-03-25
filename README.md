@@ -1,41 +1,39 @@
-# Quasar App (aqualert)
+# Aqualert
 
-Projeto avaliativo para a cadeira de Projeto e desenvolvimento para sistemas móveis
+Projeto Aqualert trata-se de um local onde pode-se registrar a quantidade de água tomada no dia, com base na meta diária obtida através do cálculo do peso e da idade do usuário, a construção foi feita com base no desafio avaliativo proposto na cadeira de Projeto e Desenvolvimento para Sistemas Móveis utilizando das tecnologias Quasar, Vue, JavaScript, HTML e SCSS.
 
-## Install the dependencies
+## Instale as dependências
 ```bash
 yarn
-# or
+# ou
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Inicie o aplicativo em modo de desenvolvimento
 ```bash
 quasar dev
 ```
 
 
-### Lint the files
+### Rode o lint nos arquivos
 ```bash
 yarn lint
-# or
+# ou
 npm run lint
 ```
 
 
-### Format the files
+### Formate os arquivos
 ```bash
 yarn format
-# or
+# ou
 npm run format
 ```
 
 
 
-### Build the app for production
+### Faça o build
 ```bash
 quasar build
 ```
 
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js).
