@@ -2,6 +2,9 @@
 
 Projeto Aqualert trata-se de um local onde pode-se registrar a quantidade de água tomada no dia, com base na meta diária obtida através do cálculo do peso e da idade do usuário, a construção foi feita com base no desafio avaliativo proposto na cadeira de Projeto e Desenvolvimento para Sistemas Móveis utilizando das tecnologias Quasar, Vue, JavaScript, HTML e SCSS.
 
+Podes ser feita a visualização diretamente na hospedagem: https://aqualertproject.netlify.app/
+> Atenção: O projeto não foi feito visando multiplataforma, responsividade, recomendamos a visualização no dispositivo móvel ou que seja ativo o Toggle Device Toolbar no navegador.
+
 ## Instale as dependências
 ```bash
 yarn
